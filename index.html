@@ -36,9 +36,48 @@ button{margin-top:22px;width:100%;padding:14px;background:#2563eb;color:white;bo
 </div>
 </main>
 <script>
-document.getElementById('schoolForm').addEventListener('submit',function(e){
-e.preventDefault();
-alert('Rahmat! Bu demo forma. Arizani saqlash tizimi keyingi bosqichda ulanadi.');
+const form = document.getElementById("schoolForm");
+
+form.addEventListener("submit", async function (event) {
+  event.preventDefault();
+
+  const button = form.querySelector("button");
+  button.disabled = true;
+  button.textContent = "Yuborilmoqda...";
+
+  const data = {
+    school_name: form.elements.school.value.trim(),
+    address: form.elements.address.value.trim(),
+    contact_email: form.elements.email.value.trim()
+  };
+
+  try {
+    const response = await fetch(
+      "https://jnwogzamvmimmkbayvpv.supabase.co/functions/v1/school-registration",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impud29nemFtdm1pbW1rYmF5dnB2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIzMTI0NjQsImV4cCI6MjEwNzg4ODQ2NH0.Ro4w9ksH9jc6bADdeyJ-d31tRMPEMY-2rzljBjodoLc"
+        },
+        body: JSON.stringify(data)
+      }
+    );
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      throw new Error(result.error || "Arizani yuborib bo‘lmadi.");
+    }
+
+    alert("Arizangiz muvaffaqiyatli yuborildi!");
+    form.reset();
+  } catch (error) {
+    alert("Xatolik: " + error.message);
+  } finally {
+    button.disabled = false;
+    button.textContent = "Arizani yuborish";
+  }
 });
 </script>
 </body>
