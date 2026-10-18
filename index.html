@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Focus</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f6fc;
+      color: #172554;
+    }
+    header {
+      background: #142b5c;
+      color: white;
+      padding: 22px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo { font-size: 25px; font-weight: bold; }
+    .hero {
+      text-align: center;
+      padding: 75px 20px;
+      background: linear-gradient(135deg, #e2eaff, #f8fbff);
+    }
+    h1 { font-size: 44px; margin-bottom: 16px; }
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto 28px;
+      line-height: 1.7;
+      color: #475569;
+    }
+    button {
+      background: #2563eb;
+      color: white;
+      border: 0;
+      border-radius: 9px;
+      padding: 14px 22px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 35px 6%;
+    }
+    .card {
+      background: white;
+      border-radius: 14px;
+      padding: 25px;
+      max-width: 300px;
+      flex: 1 1 240px;
+      box-shadow: 0 4px 18px #17255412;
+    }
+    .card h3 { color: #1d4ed8; }
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #64748b;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">🎓 School Focus</div>
+    <span>Ta'lim • Diqqat • Natija</span>
+  </header>
+
+  <section class="hero">
+    <h1>Darsga e'tibor. Kelajakka qadam.</h1>
+    <p>
+      School Focus — maktablarda o'quvchilarning
+      dars vaqtida diqqatini jamlashga yordam beruvchi
+      platforma.
+    </p>
+    <button onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+      Batafsil ma'lumot
+    </button>
+  </section>
+
+  <section class="features" id="about">
+    <div class="card">
+      <h3>🏫 Maktablar</h3>
+      <p>Maktablar platformaga ariza berishi va administrator tasdig'ini olishi mumkin.</p>
+    </div>
+    <div class="card">
+      <h3>📍 Maktab hududi</h3>
+      <p>Maktab hududini belgilash funksiyasi kelgusi bosqichda ulanadi.</p>
+    </div>
+    <div class="card">
+      <h3>📱 Diqqatni boshqarish</h3>
+      <p>Qurilmalarni boshqarish imkoniyatlari keyingi bosqichda ishlab chiqiladi.</p>
+    </div>
+  </section>
+
+  <footer>© 2026 School Focus — Birgalikda yaxshiroq ta'lim.</footer>
+</body>
+</html>
